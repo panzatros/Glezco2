@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+
+{% block content %}
+
+{% for item in object_list %}
+    <a href="{{ item.check_direccion }}">{{ item.calle }}</a>
+{% empty %}
+    <li>No has agregado direcciones de entrega.</li>
+{% endfor %}
+
+<form method="post" action="{% url 'add-addres' %}">
+    {{form.as_p}}
+    {% csrf_token %}
+    <button type="submit">Agregar</button>
+</form>
+
+{% endblock content %}

@@ -1,0 +1,79 @@
+{% extends "core/base.html" %}
+
+
+{% block content %}
+
+<section class="section-detalle-producto">
+
+    <div class="container titulo-producto-detalle">
+        <div class="row">
+            <h1>{{ object.titulo }}</h1>        
+        </div>
+        <div class="row altura">
+            <div class="col cuadro">
+                <img src="{{object.image.url}}" alt="{{ object.titulo }}" class="imagen-verduras">
+            </div>
+            <div class="col">
+                <div class="row">
+                    <p>
+                        {{ object.descripcion }} <br>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                </div>
+                <div class="row">
+                    <p>
+                        {{ object.price }}
+                    </p>
+                </div>
+            </div>      
+        </div>
+        <div class="row formulario-detalles">
+            <div class="col">
+                <div>
+                    <form method="post" action="{{ object.get_add_to_cart_url }}" id="mini-form">
+                        <div class="row">
+                            <div class="col">&nbsp;</div>
+                            <div class="col">
+                                {% csrf_token %}
+                                {{form.as_p}}
+                            </div>
+                            <div class="col">&nbsp;</div>
+                        </div>
+                        <div class="row justify-content-md-center">
+                            <div class="col">&nbsp;</div>
+                            <div class="col"><button type="submit" class="btn btn-primary btn-lg btn-block formatear" data-toggle="button" aria-pressed="false" autocomplete="off">enviar</button></div>
+                            <div class="col">&nbsp;</div>
+                            
+                        </div>
+                    </form>            
+                </div>
+                <div>
+                    <form method="post" action="{{ object.get_remove_from_cart_url }}">
+                        {% csrf_token %}
+                        <div class="row justify-content-md-center">
+                            <div class="col">&nbsp;</div>
+                            <div class="col"><button type="submit" class="btn btn-primary btn-lg btn-block formatear" data-toggle="button" aria-pressed="false" autocomplete="off">enviar</button></div>
+                            <div class="col">&nbsp;</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col">
+                <p>
+                    &nbsp;
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+

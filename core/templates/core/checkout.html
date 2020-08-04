@@ -1,0 +1,17 @@
+
+
+<h2>Orden</h2>
+
+Domicilio:
+
+
+<a href="{% url "slect-addres" %}">{{cosa}}</a>
+
+
+<a href= "{% url "home" %}">continaur comprando</a>
+
+<form method="post" action="{% url 'confirmacion-de-pedido' %}">
+    {% csrf_token %}
+    <button type="submit">Confirmar pedido</button>
+</form>
+

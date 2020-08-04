@@ -1,0 +1,13 @@
+hola
+{{object.calle}}
+
+
+<form method="post" action="{{ object.select_direccion }}">
+    {% csrf_token %}
+    <button type="submit">Seleccionar</button>
+</form>
+
+<form method="post" action="{{ object.delete_direccion }}">
+    {% csrf_token %}
+    <button type="submit">eliminar</button>
+</form>

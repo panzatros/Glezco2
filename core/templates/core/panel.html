@@ -1,0 +1,20 @@
+<h1>aun estoy trabajando en el
+</h1>
+
+<ul>
+{% for item in object_list %}
+
+<li>
+{{item.titulo}}
+</li>
+
+{% empty %}
+<li>No articles yet.</li>
+{% endfor %}
+</ul>
+
+<form method="post" action="{% url 'agregar-producto' %}" enctype="multipart/form-data">
+    {{form.as_p}}
+    {% csrf_token %}
+    <button type="submit">Agregar Producto</button>
+</form>

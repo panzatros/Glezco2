@@ -1,0 +1,1 @@
+Esta es una aplicacion de tipo shopify con funcionalidad limitada a las necesidades del usuario

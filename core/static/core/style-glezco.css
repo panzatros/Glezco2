@@ -1,0 +1,180 @@
+/*=========================================================*/
+/*Base*/
+/*=========================================================*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: Fine-Eroded;
+    src: url(Fuentes/Fine\ Eroded.ttf)
+}
+
+html{
+    font-family: Fine-Eroded;
+    font-size: 18px;
+}
+
+.clearfix {zoom: 1;}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+
+/*=========================================================*/
+/*Reusable componenets*/
+/*=========================================================*/
+
+.img-product-main img{
+    width: 100%;
+    height: auto;
+}
+
+
+/*=========================================================*/
+/*Reusable componenets*/
+/*=========================================================*/
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+
+
+.box {
+    padding: 1%;
+}
+
+/*titulos*/
+
+
+h1, h2, h3, h4 {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/*botones with a*/
+
+.btn:link, 
+.btn:visited {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 400;
+    text-decoration: none;
+    border-radius: 200px;
+    color: #ffffff;
+    transition: background-color 0.4s, border 0.4s, color 0.4s;
+    margin-right: 15px;
+}
+
+.btn:hover,
+.btn:active {
+    background-color: #64350b;
+    border: 1px solid #64350b;
+}
+
+.btn-full:link, 
+.btn-full:visited {
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+}
+
+.btn-full:hover,
+.btn-full:active {
+    background-color: #64350b;
+    border: 1px solid #64350b;
+    color: #ffffff;
+}
+
+.btn-ghost:link, 
+.btn-ghost:visited {
+    border: 1px solid #e67e22;
+    color: #e67e22;
+}
+
+.btn-ghost:active, 
+.btn-ghost:hover {
+    color: #ffffff;
+}
+
+.formatear { 
+    margin-bottom: 15px;
+    width: 90%;
+}
+
+/*=========================================================*/
+/*Producto*/
+/*=========================================================*/
+
+
+.titulo-producto-detalle{
+    padding-top: 15px;
+}
+
+
+.titulo-producto-detalle h1{
+    margin-left: 15%;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 240%;
+    word-spacing: 4px;
+}
+
+.section-detalle-producto {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(img-css/fondo-producto.jpg);
+    background-size: cover;
+    color: #ffffff;
+    background-attachment: fixed;
+    padding-bottom: 25px;
+}
+
+.altura{
+    width: 100%;
+    height: auto;
+
+}
+
+.cuadro {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    
+}
+
+.imagen-verduras{
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.formulario-detalles {
+    padding-left: 25px;
+}
+
+#mini-form label{
+    font-size: 120%;
+    font-weight: 400;
+}
+
+#mini-form input[type=number]{
+    width: 100%;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+/*NavBar*/
+
