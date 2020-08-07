@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import View, DetailView, FormView
+from django.views.generic import View, DetailView, FormView, UpdateView
 from django.views.generic.list import ListView
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.forms import AuthenticationForm
@@ -278,9 +278,19 @@ def addPrduct(request):
     return redirect('panel')
     """
 
-def handle_uploaded_file(f):
-    with open('media/core/'+f.name, 'wb+') as destination:
-        destination.write(f)
+class PanelDetalles(UpdateView):
+    model = productos
+    template_name = "core/panelProduct.html"
+    form_class = ProductEditForm
+
+    def get_context_data(self, **kwargs):
+        context = super(PanelDetalles, self).get_context_data(**kwargs)
+        object = self.get_object()
+        context['productos'] = context['object'] = object
+        return context
+
+
+
 
 def product_panel_detalles(request):
     pass

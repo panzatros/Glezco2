@@ -82,6 +82,8 @@ urlpatterns = [
     path('paneldecontrol', views.panel.as_view(), name='panel'),
     #agregar
     path('agregarProducto', views.addPrduct, name='agregar-producto'),
+    #detalle de producto panel
+    path('producto-Panel/<slug>', views.PanelDetalles.as_view(), name='producto_panel'),
 ]
 
 

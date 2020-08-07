@@ -21,6 +21,7 @@ class DireccionEntrega(models.Model):
     def select_direccion(self):
         return reverse("select-Direccion", kwargs={'slug': self.slug})    
 
+
     def delete_direccion(self):
         return reverse("delete-addres", kwargs={'slug': self.slug})
 
@@ -56,6 +57,9 @@ class productos(models.Model):
 
     def get_absolute_url(self):
         return reverse("producto", kwargs={'slug': self.slug})
+
+    def get_absolute_url_panel(self):
+        return reverse("producto_panel", kwargs={'slug': self.slug})
 
     def get_add_to_cart_url(self):
         return reverse("my_form_view_url", kwargs={'slug': self.slug})
