@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from django.views.generic import View, DetailView, FormView, UpdateView
 from django.views.generic.list import ListView
 from django.contrib.auth import login,logout,authenticate
@@ -211,15 +212,15 @@ class detalleAddres(View):
 
 class OrderSummaryView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
-        #try:
-        order = Order.objects.get(user=self.request.user, ordered=False)
-        context = {
-            'object': order
-        }
-        return render(self.request, 'core/order_summary.html', context)
-        #except ObjectDoesNotExist:
-        #    messages.warning(self.request, "You do not have an active order")
-        #    return redirect("/")
+        try:
+            order = Order.objects.get(user=self.request.user, ordered=False)
+            context = {
+                'object': order
+            }
+            return render(self.request, 'core/order_summary.html', context)
+        except :
+            messages.warning(self.request, "You do not have an active order")
+            return redirect("/")
 
 
 def confirmar_Pedido(request):
@@ -303,7 +304,18 @@ def change_prodcuts(request, slug):
         return redirect('panel')
 
 
+class ver_ordenes_abiertas(ListView):
+    model = Order
+    paginate_by = 12
+    template_name='core/OrdenAbierta.html'
 
+class ver_ordenes_canceladas(ListView):
+    model = Order
+    paginate_by = 12
+    template_name='core/OrdenCancelada.html'
 
-
+class ver_ordenes_Cerradas(ListView):
+    model = Order
+    paginate_by = 12
+    template_name='core/OrdenCerrada.html'
 
