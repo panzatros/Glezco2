@@ -61,6 +61,9 @@ class productos(models.Model):
     def get_absolute_url_panel(self):
         return reverse("producto_panel", kwargs={'slug': self.slug})
 
+    def get_absolute_url_panel_edit(self):
+        return reverse("producto_panel_edit", kwargs={'slug': self.slug})
+
     def get_add_to_cart_url(self):
         return reverse("my_form_view_url", kwargs={'slug': self.slug})
 

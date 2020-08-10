@@ -289,8 +289,21 @@ class PanelDetalles(UpdateView):
         context['productos'] = context['object'] = object
         return context
 
+def change_prodcuts(request, slug):
+    hola = get_object_or_404(productos,slug=slug)
+    url23 = slugify(request.POST['titulo'])
+    valor = False
+    if request.POST['disponible'] == "on":
+        valor = True
+    form = ProductEditForm(instance=hola)
+    if form.is_valid():
+        # file is saved
+        instance = productos(titulo=request.POST['titulo'], descripcion=request.POST['descripcion'] ,image=request.FILES['image'],slug=url23,disponible=valor)
+        instance.save()
+        return redirect('panel')
 
 
 
-def product_panel_detalles(request):
-    pass
+
+
+
