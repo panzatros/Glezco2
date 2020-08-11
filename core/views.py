@@ -187,7 +187,7 @@ def deleteAddres(request,slug):
     return redirect("slect-addres")
 
 def selectDireccion(request,slug):
-    item = get_objectcancelled=False, being_delivered=False, received=False_or_404(DireccionEntrega, slug=slug)
+    item = get_object_or_404(DireccionEntrega, slug=slug)
     order_qs = Order.objects.filter(user=request.user, ordered=False)
     order = order_qs[0]
     domicilioPrevio = order.shipping_address.all()
@@ -358,6 +358,6 @@ def Cancelar_orden_cliente(request, la_pk):
 
 
 @login_required
-def ver_ordenes_cliente(request):
+def ver_ordenes(request):
     todos = Order.objects.filter(ordered=True, cancelled=False, being_delivered=False, received=False).order_by('-ordered_date_pedido')
     return render(request, 'core/OrdenAbierta.html', {'object_list':todos})
