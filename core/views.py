@@ -187,7 +187,7 @@ def deleteAddres(request,slug):
     return redirect("slect-addres")
 
 def selectDireccion(request,slug):
-    item = get_object_or_404(DireccionEntrega, slug=slug)
+    item = get_objectcancelled=False, being_delivered=False, received=False_or_404(DireccionEntrega, slug=slug)
     order_qs = Order.objects.filter(user=request.user, ordered=False)
     order = order_qs[0]
     domicilioPrevio = order.shipping_address.all()
@@ -331,3 +331,33 @@ def observarla_orden(request, la_pk):
     todo = get_object_or_404(Order, pk=la_pk)
     if request.method == 'GET':
         return render(request, 'core/OrdenDetalle.html', {'detalle':todo})
+
+def Cancelar_orden(request, la_pk):
+    todo = get_object_or_404(Order, pk=la_pk)
+    if request.method == 'POST':
+        todo.cancelled = True
+        todo.save()
+
+def Enviada_orden(request, la_pk):
+    todo = get_object_or_404(Order, pk=la_pk)
+    if request.method == 'POST':
+        todo.being_delivered = True
+        todo.save()
+
+def Recivida_orden(request, la_pk):
+    todo = get_object_or_404(Order, pk=la_pk)
+    if request.method == 'POST':
+        todo.received = True
+        todo.save()
+
+def Cancelar_orden_cliente(request, la_pk):
+    todo = get_object_or_404(Order, pk=la_pk, user=request.user)
+    if request.method == 'POST':
+        todo.cancelled = True
+        todo.save()
+
+
+@login_required
+def ver_ordenes_cliente(request):
+    todos = Order.objects.filter(ordered=True, cancelled=False, being_delivered=False, received=False).order_by('-ordered_date_pedido')
+    return render(request, 'core/OrdenAbierta.html', {'object_list':todos})

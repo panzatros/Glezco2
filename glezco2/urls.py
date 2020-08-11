@@ -81,6 +81,10 @@ urlpatterns = [
     path('Panel/ordenesCanceladas', views.ver_ordenes_canceladas, name='OrdenesMasterCanceladas'),
     #detalle orden
     path('Panel/ordenes/<int:la_pk>', views.observarla_orden, name='DetalleOrden'),
+    #detalle orden button
+    path('Panel/ordenes/can/<int:la_pk>', views.Cancelar_orden, name='DetalleOrdenCan'),
+    #detalle orden button
+    #path('Panel/ordenes/can/<int:la_pk>', views.Cancelar_orden, name='DetalleOrdenCan'),
 ]
 
 
