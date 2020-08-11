@@ -71,7 +71,16 @@ urlpatterns = [
     path('producto-Panel/<slug>', views.PanelDetalles.as_view(), name='producto_panel'),
     #detalle de producto panel edit
     path('producto-Panel/edit/<slug>', views.change_prodcuts, name='producto_panel_edit'),
-
+    #detalle de orden pendioente
+    path('Panel/ordenesAbiertas', views.ver_ordenes, name='OrdenesMasterAbiertas'),
+    #detalle de orden cerrada 
+    path('Panel/ordenesCerradas', views.ver_ordenes_Cerradas, name='OrdenesMasterCerradas'),
+    #detalle de orden Enviada
+    path('Panel/ordenesEnviadas', views.ver_ordenes_Enviadas, name='OrdenesMasterEnviadas'),
+    #detalle orden cancelada
+    path('Panel/ordenesCanceladas', views.ver_ordenes_canceladas, name='OrdenesMasterCanceladas'),
+    #detalle orden
+    path('Panel/ordenes/<int:la_pk>', views.observarla_orden, name='DetalleOrden'),
 ]
 
 

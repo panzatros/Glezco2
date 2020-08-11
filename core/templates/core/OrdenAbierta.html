@@ -1,0 +1,18 @@
+
+{% for item in object_list %}
+    <br>
+    {% if item.items.all %}
+        
+        <a href="{% url 'DetalleOrden' item.id %}">{{item.user}}</a>
+        {% for prof in item.items.all %}
+            <li>
+                {{prof}}
+            </li>
+        {% endfor %}
+    {% endif %}    
+
+    
+
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}

@@ -239,6 +239,7 @@ def confirmar_Pedido(request):
 def gracias_por_pedido(request):
     return render(request, "core/Thanks.html")
 
+#@login_required
 class panel(ListView):
     model = productos
     paginate_by = 9
@@ -249,7 +250,7 @@ class panel(ListView):
         context['form'] = ProductEditForm
         return context
 
-
+@login_required
 def addPrduct(request):
     if request.method == 'POST':
         url23 = slugify(request.POST['titulo'])
@@ -279,6 +280,7 @@ def addPrduct(request):
     return redirect('panel')
     """
 
+#@login_required
 class PanelDetalles(UpdateView):
     model = productos
     template_name = "core/panelProduct.html"
@@ -290,6 +292,7 @@ class PanelDetalles(UpdateView):
         context['productos'] = context['object'] = object
         return context
 
+@login_required
 def change_prodcuts(request, slug):
     hola = get_object_or_404(productos,slug=slug)
     url23 = slugify(request.POST['titulo'])
@@ -303,19 +306,28 @@ def change_prodcuts(request, slug):
         instance.save()
         return redirect('panel')
 
+@login_required
+def ver_ordenes(request):
+    todos = Order.objects.filter(ordered=True, cancelled=False, being_delivered=False, received=False).order_by('-ordered_date_pedido')
+    return render(request, 'core/OrdenAbierta.html', {'object_list':todos})
 
-class ver_ordenes_abiertas(ListView):
-    model = Order
-    paginate_by = 12
-    template_name='core/OrdenAbierta.html'
+@login_required
+def ver_ordenes_canceladas(request):
+    todos = Order.objects.filter(cancelled=True).order_by('-ordered_date_pedido')
+    return render(request, 'core/OrdenCancelada.html', {'object_list':todos})
 
-class ver_ordenes_canceladas(ListView):
-    model = Order
-    paginate_by = 12
-    template_name='core/OrdenCancelada.html'
+@login_required
+def ver_ordenes_Enviadas(request):
+    todos = Order.objects.filter(being_delivered=True, received=False).order_by('-ordered_date_pedido')
+    return render(request, 'core/OrdenEnviada.html', {'object_list':todos})
 
-class ver_ordenes_Cerradas(ListView):
-    model = Order
-    paginate_by = 12
-    template_name='core/OrdenCerrada.html'
+@login_required
+def ver_ordenes_Cerradas(request):
+    todos = Order.objects.filter(received=True).order_by('-ordered_date_pedido')
+    return render(request, 'core/OrdenCerrada.html', {'object_list':todos})
 
+@login_required
+def observarla_orden(request, la_pk):
+    todo = get_object_or_404(Order, pk=la_pk)
+    if request.method == 'GET':
+        return render(request, 'core/OrdenDetalle.html', {'detalle':todo})

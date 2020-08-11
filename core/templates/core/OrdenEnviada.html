@@ -1,0 +1,18 @@
+hola
+
+{% for item in object_list %}
+    <br>
+    {% if item.items.all %}
+        {{item.user}}
+        {% for prof in item.items.all %}
+            <li>
+                {{prof}}
+            </li>
+        {% endfor %}
+    {% endif %}    
+
+    
+
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
