@@ -337,19 +337,23 @@ def Cancelar_orden(request, la_pk):
     if request.method == 'POST':
         todo.cancelled = True
         todo.save()
+        return redirect("OrdenesMasterCanceladas")
 
 def Enviada_orden(request, la_pk):
     todo = get_object_or_404(Order, pk=la_pk)
     if request.method == 'POST':
         todo.being_delivered = True
         todo.save()
+        return redirect("ver_ordenes_Enviadas")
 
 def Recivida_orden(request, la_pk):
     todo = get_object_or_404(Order, pk=la_pk)
     if request.method == 'POST':
         todo.received = True
         todo.save()
+        return redirect("OrdenesMasterCerradas")
 
+"""
 def Cancelar_orden_cliente(request, la_pk):
     todo = get_object_or_404(Order, pk=la_pk, user=request.user)
     if request.method == 'POST':
@@ -361,3 +365,5 @@ def Cancelar_orden_cliente(request, la_pk):
 def ver_ordenes(request):
     todos = Order.objects.filter(ordered=True, cancelled=False, being_delivered=False, received=False).order_by('-ordered_date_pedido')
     return render(request, 'core/OrdenAbierta.html', {'object_list':todos})
+
+"""

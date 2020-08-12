@@ -7,3 +7,20 @@
         {{taco}}
     </li>
 {%endfor%}   
+
+
+<form action="{% url "DetalleOrdenCan" detalle.id %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Cancelar</button>
+</form>
+
+<form action="{% url "DetalleOrdenEnv" detalle.id %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Enviado</button>
+</form>
+
+<form action="{% url "DetalleOrdenRec" detalle.id %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Recibido por el cliente</button>
+</form>
+

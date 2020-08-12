@@ -84,6 +84,10 @@ urlpatterns = [
     #detalle orden button
     path('Panel/ordenes/can/<int:la_pk>', views.Cancelar_orden, name='DetalleOrdenCan'),
     #detalle orden button
+    path('Panel/ordenes/env/<int:la_pk>', views.Enviada_orden, name='DetalleOrdenEnv'),
+    #detalle orden button
+    path('Panel/ordenes/rec/<int:la_pk>', views.Recivida_orden, name='DetalleOrdenRec'),
+    #detalle orden button
     #path('Panel/ordenes/can/<int:la_pk>', views.Cancelar_orden, name='DetalleOrdenCan'),
 ]
 
