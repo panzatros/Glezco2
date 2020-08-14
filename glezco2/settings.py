@@ -25,7 +25,7 @@ SECRET_KEY = 'b20a%%8h2w7^&2%fvn2pba2)v1ok)1t&x++t)j$x_+8*=fyrgi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['panzatros.pythonanywhere.com']
 
 
 # Application definition
