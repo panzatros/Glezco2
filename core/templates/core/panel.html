@@ -1,5 +1,8 @@
-<h1>aun estoy trabajando en el
-</h1>
+{% extends "core/base.html" %}
+
+{% block content %}
+
+<h1>Panel de Administracion</h1>
 
 <ul>
 {% for item in object_list %}
@@ -36,3 +39,5 @@
     {% csrf_token %}
     <button type="submit">Agregar Producto</button>
 </form>
+
+{% endblock content %}

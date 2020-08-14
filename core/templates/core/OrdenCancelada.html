@@ -1,4 +1,6 @@
-hola
+{% extends "core/base.html" %}
+
+{% block content %}
 
 {% for item in object_list %}
     <br>
@@ -16,3 +18,5 @@ hola
 {% empty %}
     <li>No articles yet.</li>
 {% endfor %}
+
+{% endblock content %}

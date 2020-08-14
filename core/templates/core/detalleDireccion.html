@@ -1,4 +1,7 @@
-hola
+{% extends "core/base.html" %}
+{% block content %}
+
+
 {{object.calle}}
 
 
@@ -11,3 +14,6 @@ hola
     {% csrf_token %}
     <button type="submit">eliminar</button>
 </form>
+
+
+{% endblock content %}

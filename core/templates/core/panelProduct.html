@@ -1,6 +1,12 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+
 <form method="post" action="{{ item.get_absolute_url_panel_edit }}" enctype="multipart/form-data">
     
     {{form.as_p}}
     {% csrf_token %}
     <button type="submit">Agregar Producto</button>
 </form>
+
+{% endblock content %}

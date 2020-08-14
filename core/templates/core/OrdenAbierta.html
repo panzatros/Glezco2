@@ -1,4 +1,6 @@
+{% extends "core/base.html" %}
 
+{% block content %}
 {% for item in object_list %}
     <br>
     {% if item.items.all %}
@@ -18,3 +20,4 @@
 {% endfor %}
 
 
+{% endblock content %}
