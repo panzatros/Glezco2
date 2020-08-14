@@ -2,11 +2,26 @@
 
 {% block content %}
 
-<form method="post" action="{{ item.get_absolute_url_panel_edit }}" enctype="multipart/form-data">
+<section>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <h1>{{object.titulo}}</h1>
+        </div>
+        <div class="row">
+            <div class="col"> &nbsp; </div>
+            <div class="col">
+                <form method="post" action="{{ item.get_absolute_url_panel_edit }}" enctype="multipart/form-data">
     
-    {{form.as_p}}
-    {% csrf_token %}
-    <button type="submit">Agregar Producto</button>
-</form>
+                    {{form.as_p}}
+                    {% csrf_token %}
+                    <button type="submit">Agregar Producto</button>
+                </form>
+            </div>
+            <div class="col"> &nbsp; </div>
+
+        </div>
+
+    </div>
+</section>
 
 {% endblock content %}

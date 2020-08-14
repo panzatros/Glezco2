@@ -2,42 +2,54 @@
 
 {% block content %}
 
-<h1>Panel de Administracion</h1>
-
-<ul>
-{% for item in object_list %}
-
-<li>
-    <a href="{{ item.get_absolute_url_panel }}">{{ item.titulo }}</a>
-</li>
-
-{% empty %}
-<li>No articles yet.</li>
-{% endfor %}
-</ul>
-
-<div class="pagination row justify-content-md-center">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
-
-<form method="post" action="{% url 'agregar-producto' %}" enctype="multipart/form-data">
-    {{form.as_p}}
-    {% csrf_token %}
-    <button type="submit">Agregar Producto</button>
-</form>
+<section>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <h1>Panel de Administracion</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3>Editar Items</h3>
+                <ul>
+                    {% for item in object_list %}
+                    
+                    <li>
+                        <a href="{{ item.get_absolute_url_panel }}">{{ item.titulo }}</a>
+                    </li>
+                    
+                    {% empty %}
+                    <li>No articles yet.</li>
+                    {% endfor %}
+                    </ul>
+                    
+                    <div class="pagination row justify-content-md-center">
+                        <span class="step-links">
+                            {% if page_obj.has_previous %}
+                                <a href="?page=1">&laquo; first</a>
+                                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                            {% endif %}
+                    
+                            <span class="current">
+                                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                            </span>
+                    
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+            </div>
+            <div class="col">
+                <h3>agregar nuevo item</h3>
+                <form method="post" action="{% url 'agregar-producto' %}" enctype="multipart/form-data">
+                    {{form.as_p}}
+                    {% csrf_token %}
+                    <button type="submit">Agregar Producto</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock content %}

@@ -1,23 +1,32 @@
 {% extends "core/base.html" %}
 
 {% block content %}
-{% for item in object_list %}
-    <br>
-    {% if item.items.all %}
-        
-        <a href="{% url 'DetalleOrden' item.id %}">{{item.user}}</a>
-        {% for prof in item.items.all %}
-            <li>
-                {{prof}}
-            </li>
-        {% endfor %}
-    {% endif %}    
+<section>
+    <div class="conainer">
+        <div class="row">
+            
+        </div>
+        <div class="row">
+            {% for item in object_list %}
+                <br>
+                {% if item.items.all %}
+                    
+                    <a href="{% url 'DetalleOrden' item.id %}">{{item.user}}</a>
+                    {% for prof in item.items.all %}
+                        <div>
+                            <li>
+                                {{prof}}
+                            </li>
+                        </div>
+                    {% endfor %}
+                {% endif %}    
+            {% empty %}
+                <li>No articles yet.</li>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
-    
-
-{% empty %}
-    <li>No articles yet.</li>
-{% endfor %}
 
 
 {% endblock content %}
