@@ -2,19 +2,43 @@
 
 {% block content %}
 
-<h2>Orden</h2>
+<section>
+    <div class="container">
+        <div class=" row justify-content-md-center pb-3">
+            <h1 >Orden Contenido</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h3>Datos</h3>
+                Orden numero: {{object.id}} <br>
+                Requerida por: {{object.user}} <br>
+                Ordenada: {{object.start_date}}
+                <h3>Contenido</h3>
+                {% for taco in object.items.all%}
+                    <li>
+                        {{taco}}
+                    </li>
+                {%endfor%}   
+            </div>
+            <div class="col">
+                <p>domicilio: {{cosa}}</p>
+                <a href="{% url 'confirmacion-de-pedido' %}"><button class="btn btn-secondary" type="submit">{{cosa}}</button></a> <br>
+                <br>
+                <p>Continuar comprando</p>
+                <a href="{% url "home" %}"><button class="btn btn-secondary" type="submit">Home</button></a> <br>
+                <br>
+                <form method="post" action="{% url 'confirmacion-de-pedido' %}">
+                    <p>Finalizar el pedido</p>
+                    {% csrf_token %}
+                    <button class="btn btn-secondary" type="submit">Confirmar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
-Domicilio:
 
 
-<a href="{% url "slect-addres" %}">{{cosa}}</a>
 
-
-<a href= "{% url "home" %}">continaur comprando</a>
-
-<form method="post" action="{% url 'confirmacion-de-pedido' %}">
-    {% csrf_token %}
-    <button type="submit">Confirmar pedido</button>
-</form>
 
 {% endblock content %}

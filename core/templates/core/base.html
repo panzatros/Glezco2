@@ -4,6 +4,13 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{% static 'core/style-glezco.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/elegant-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/slicknav.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <meta charset="UTF-8">
@@ -14,7 +21,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div id="preloder">
+    <div class="loader"></div>
+</div>
+    
+    
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
         <a class="navbar-brand" href="/">Glezco</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,8 +70,14 @@
     </nav>
     {% block content %}{% endblock %}
     
-    
-
+    <script src="{% static 'core/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'core/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'core/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'core/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'core/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'core/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'core/js/main.js' %}"></script>
 
     {% include "core/footer.html" %}
 </body>

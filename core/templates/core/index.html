@@ -1,13 +1,78 @@
 {% extends "core/base.html" %}
+{% load static %}
+
 {% block content %}
 <div class="container">
-    <div class="row">
+
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>Departamentos</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Carne</a></li>
+                            <li><a href="#">Vegetales</a></li>
+                            <li><a href="#">Fruitas y nueces</a></li>
+                            <li><a href="#">vallas</a></li>
+                            <li><a href="#">Mariscos</a></li>
+                            <li><a href="#">Mantequilla y huevos</a></li>
+                            <li><a href="#">Comida rapida</a></li>
+                            <li><a href="#">Cebolla</a></li>
+                            <li><a href="#">Papaya</a></li>
+                            <li><a href="#">Avena</a></li>
+                            <li><a href="#">Platanos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+                                <div class="hero__search__categories">
+                                    Categorias
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <input type="text" placeholder="Que Necesitas?">
+                                <button type="submit" class="site-btn">BUSCAR</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <p>333333333</p>
+                                <span>Contacto</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__item set-bg" data-setbg="{% static 'core/img/GLEZCO LOGOTIPO.png' %}">
+                        <div class="hero__text">
+                            <span>FRUTA</span>
+                            <h2>Vegetales <br />100% Organico</h2>
+                            <p>Recoge tu producto o te lo enviamos</p>
+                            <a href="#" class="primary-btn">SHOP NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="row justify-content-md-center">
+        <h1>Nuestros productos</h1>
+    </div>
+    <div class="row mt-3 mb-5">
         {% for item in object_list %}
 
             {% if item.disponible %}
-                <div class="col">
+                <div class="col mt-3 mb-3 ml-3 mr-3 ">
                     <div class="img-product-main">
-                        <a href="{{ item.get_absolute_url }}"><img src="{{item.image.url}}" alt="{{ item.titulo }}"></a>
+                        <a href="{{ item.get_absolute_url }}"><img src="{{item.image.url}}" alt="{{ item.titulo }}" class="img-circle"></a>
                     </div>
                     <!--a href="{{ item.get_absolute_url }}"><img src="{{item.image.url}}" alt="{{ item.titulo }}"></a-->
                     <h3>{{ item.titulo }}</h3>
@@ -18,7 +83,7 @@
             {% else %}
                 <div class="col no-disponible">
                     <div class="img-product-main">
-                        <a href="{{ item.get_absolute_url }}"><img src="{{item.image.url}}" alt="{{ item.titulo }}"></a>
+                        <a href="{{ item.get_absolute_url }}"><img src="{{item.image.url}}" alt="{{ item.titulo }}" class="img-circle></a>
                     </div>
                     <!--a href="{{ item.get_absolute_url }}"><img src="{{item.image.url}}" alt="{{ item.titulo }}"></a-->
                     <h3<a href="{{ item.get_absolute_url }}">{{ item.titulo }}</a></h3>
