@@ -1,19 +1,68 @@
 {% extends "core/base.html" %}
+
+{% load static %}
+
 {% block content %}
 
 
-{{object.calle}}
+
+<section class="breadcrumb-section set-bg mt-1" data-setbg="{% static 'core/img/breadcrumb.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>{{object.calle}}</h2>
+                    <div class="breadcrumb__option">
+                        <!--a href="./index.html">Home</a-->
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-<form method="post" action="{{ object.select_direccion }}">
-    {% csrf_token %}
-    <button type="submit">Seleccionar</button>
-</form>
+<section class="mt-5 mb-5">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col">
+                <h3>calle: {{object.calle}} </h3>
+                <h4>Numero: {{object.numeroExterior}} </h4>
+                <h4>Numero Interior: {{object.numeroInterior}} </h4>
+                <h4>Colonia: {{object.Colonia}} </h4>
+                
+            
+                <form method="post" action="{{ object.select_direccion }}">
+                    {% csrf_token %}
+                    <button type="submit">Seleccionar</button>
+                </form>
+                
+                <form method="post" action="{{ object.delete_direccion }}">
+                    {% csrf_token %}
+                    <button type="submit">eliminar</button>
+                </form>
+            </div>
+            
+        </div>
+    
+    </div>
+</section>
 
-<form method="post" action="{{ object.delete_direccion }}">
-    {% csrf_token %}
-    <button type="submit">eliminar</button>
-</form>
-
+<section class="breadcrumb-section set-bg mt-1" data-setbg="{% static 'core/img/breadcrumb.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Seleccione domicilio</h2>
+                    <div class="breadcrumb__option">
+                        <!--a href="./index.html">Home</a-->
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock content %}
