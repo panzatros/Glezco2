@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
 
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -48,11 +49,14 @@
                     <h2>Agregue una nueva</h2>
                 </div>
                 <div class="row">
-                    <form method="post" action="{% url 'add-addres' %}">
-                        {{form.as_p}}
-                        {% csrf_token %}
-                        <button class="btn btn-secondary" type="submit">Agregar</button>
-                    </form>
+                    <div class="col">
+                        <form method="post" action="{% url 'add-addres' %}">
+                            {{form|crispy}}
+                            {% csrf_token %}
+                            <button class="btn btn-secondary" type="submit">Agregar</button>
+                        </form>
+                    </div>
+                    
                 </div>
             </div>
         </div>

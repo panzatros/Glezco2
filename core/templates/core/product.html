@@ -1,14 +1,26 @@
 {% extends "core/base.html" %}
-
+{% load static %}
 
 {% block content %}
 
-<section class="section-detalle-producto">
-
-    <div class="container titulo-producto-detalle">
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'core/img/breadcrumb.jpg' %}">
+    <div class="container">
         <div class="row">
-            <h1>{{ object.titulo }}</h1>        
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>{{ object.titulo }}</h2>
+                    <div class="breadcrumb__option">
+                        <!--a href="./index.html">Home</a-->
+                        <span></span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+</section>
+
+<section class="section-detalle-producto">
+    <div class="container titulo-producto-detalle">
         <div class="row altura">
             <div class="col cuadro">
                 <img src="{{object.image.url}}" alt="{{ object.titulo }}" class="imagen-verduras">
@@ -43,7 +55,6 @@
                             <div class="col">&nbsp;</div>
                             <div class="col"><button type="submit" class="btn btn-primary btn-lg btn-block formatear">Agregar</button></div>
                             <div class="col">&nbsp;</div>
-                            
                         </div>
                     </form>            
                 </div>
@@ -67,8 +78,21 @@
     </div>
 </section>
 
-
-
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'core/img/breadcrumb.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>Producto</h2>
+                    <div class="breadcrumb__option">
+                        <!--a href="./index.html">Home</a-->
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock content %}
 
