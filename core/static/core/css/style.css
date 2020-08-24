@@ -77,10 +77,14 @@ h6 {
 p {
 	font-size: 16px;
 	font-family: "Cairo", sans-serif;
-	color: white;
+	color: #6f6f6f;
 	font-weight: 400;
 	line-height: 26px;
 	margin: 0 0 15px 0;
+}
+
+.el_color_para_la_descripcion_de_los_productos{
+	color: white;
 }
 
 img {

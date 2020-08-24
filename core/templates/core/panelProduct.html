@@ -1,8 +1,9 @@
 {% extends "core/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-<section>
+<section class="mb-5 mt-5">
     <div class="container">
         <div class="row justify-content-md-center">
             <h1>{{object.titulo}}</h1>
@@ -12,9 +13,9 @@
             <div class="col">
                 <form method="post" action="{{ item.get_absolute_url_panel_edit }}" enctype="multipart/form-data">
     
-                    {{form.as_p}}
+                    {{form|crispy}}
                     {% csrf_token %}
-                    <button type="submit">Agregar Producto</button>
+                    <button type="submit" class="site-btn">Agregar Producto</button>
                 </form>
             </div>
             <div class="col"> &nbsp; </div>
