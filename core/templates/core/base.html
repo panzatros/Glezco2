@@ -70,7 +70,16 @@
             {% endif %}
         </div>
     </nav>
-    {% block content %}{% endblock %}
+    {% block content %}
+      {% block messages %}
+      {% endblock %}
+    {% endblock %}
+
+    {% block content_extra %}
+    {% endblock %}
+    
+    {% block extra_body %}
+    {% endblock %}
     
     <script src="{% static 'core/js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
